@@ -1,18 +1,10 @@
 <script lang="ts" setup>
 import { Head } from '@inertiajs/vue3'
 
-defineProps<{ version: number }>()
+import Layout from '@/layouts/default.vue'
 </script>
 
 <template>
-  <Head title="Homepage" />
-
-  <div class="container">
-    <div class="title text-red-600">AdonisJS {{ version }} x Inertia x Vue.js</div>
-
-    <span>
-      Learn more about AdonisJS and Inertia.js by visiting the
-      <a href="https://docs.adonisjs.com/guides/inertia">AdonisJS documentation</a>.
-    </span>
-  </div>
+  <Head title="Profile" />
+  <Layout></Layout>
 </template>
