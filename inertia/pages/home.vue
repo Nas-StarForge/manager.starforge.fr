@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Head } from '@inertiajs/vue3'
 
 defineProps<{ version: number }>()
@@ -8,7 +8,7 @@ defineProps<{ version: number }>()
   <Head title="Homepage" />
 
   <div class="container">
-    <div class="title">AdonisJS {{ version }} x Inertia x Vue.js</div>
+    <div class="title text-red-600">AdonisJS {{ version }} x Inertia x Vue.js</div>
 
     <span>
       Learn more about AdonisJS and Inertia.js by visiting the
