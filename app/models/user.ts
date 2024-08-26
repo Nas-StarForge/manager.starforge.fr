@@ -1,10 +1,10 @@
 import { DateTime } from 'luxon'
+import { randomUUID } from 'node:crypto'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
+import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
-import { randomUUID } from 'node:crypto'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -24,9 +24,17 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column({ serializeAs: null })
   declare password: string
 
+  @column()
+  declare discordId: string | null
+
   @beforeCreate()
   static async setUUID(user: User) {
     user.id = randomUUID()
+  }
+
+  async unlinkDiscord() {
+    this.discordId = null
+    await this.save()
   }
 
   @column.dateTime({ autoCreate: true })
