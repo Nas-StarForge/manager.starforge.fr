@@ -5,6 +5,8 @@ const inertiaConfig = defineConfig({
   rootView: 'inertia_layout',
   sharedData: {
     errors: (ctx) => ctx.session?.flashMessages.get('errors'),
+    messages: (ctx) => ctx.session?.flashMessages.get('messages'),
+    user: (ctx) => ctx.auth?.user,
   },
 
   ssr: {
