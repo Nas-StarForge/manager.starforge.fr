@@ -37,7 +37,7 @@
     "@julr/tooling-configs": "^2.2.0",
     "@swc/core": "^1.6.3",
     "@types/luxon": "^3.4.2",
-    "@types/node": "^20.14.5",
+    "@types/node": "^20.16.1",
     "@vitejs/plugin-vue": "^5.1.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
@@ -61,6 +61,8 @@
     "@adonisjs/shield": "^8.1.1",
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^3.0.0",
+    "@headlessui/vue": "^1.7.22",
+    "@heroicons/vue": "^2.1.5",
     "@inertiajs/vue3": "^1.2.0",
     "@vinejs/vine": "^2.1.0",
     "edge.js": "^6.0.2",
@@ -75,8 +77,5 @@
       "./app/middleware/*.ts"
     ]
   },
-  "eslintConfig": {
-    "extends": "@adonisjs/eslint-config/app"
-  },
-  "prettier": "@adonisjs/prettier-config"
+  "prettier": "@julr/tooling-configs/prettier"
 }
