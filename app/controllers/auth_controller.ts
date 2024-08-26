@@ -35,4 +35,9 @@ export default class AuthController {
 
     return response.redirect().toRoute('profile')
   }
+
+  async logout({ response }: HttpContext) {
+    response.clearCookie(String(env.get('AUTH_COOKIE_NAME')))
+    return response.redirect().toRoute('auth.login')
+  }
 }
