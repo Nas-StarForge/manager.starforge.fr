@@ -1,5 +1,3 @@
-// import type { HttpContext } from '@adonisjs/core/http'
-
 import type { HttpContext } from '@adonisjs/core/http'
 
 import User from '#models/user'
@@ -37,7 +35,7 @@ export default class DiscordsController {
     const discordUser = await discord.user()
     const user = await User.findOrFail(auth.user!.id)
 
-    user.merge({ discordId: discordUser.id })
+    user.merge({ discordId: discordUser.id, discordUsername: discordUser.nickName })
     await user.save()
 
     return response.redirect().toRoute('profile')
