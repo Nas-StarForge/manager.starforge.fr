@@ -32,6 +32,7 @@ router
     router
       .group(() => {
         router.get('/', [ProfilesController, 'show']).as('profile')
+        router.get('/settings', [ProfilesController, 'showSettings']).as('profile.settings')
       })
       .prefix('profile')
   })
