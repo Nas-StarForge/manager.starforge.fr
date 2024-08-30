@@ -36,10 +36,8 @@ const navigation = ref([
   { name: 'Paramètres', href: '/profile/settings' },
 ])
 
-// Utilisation de la page actuelle avec Inertia
 const page = usePage()
 
-// Fonction pour vérifier si une route est active
 const isActive = (href: string) => page.url === href
 </script>
 
@@ -92,8 +90,6 @@ const isActive = (href: string) => page.url === href
                 <span class="sr-only">View notifications</span>
                 <BellIcon class="h-6 w-6" aria-hidden="true" />
               </button>
-
-              <!-- Profile dropdown -->
               <Menu as="div" class="relative ml-3">
                 <div>
                   <MenuButton
@@ -130,7 +126,6 @@ const isActive = (href: string) => page.url === href
             </div>
           </div>
           <div class="-mr-2 flex md:hidden">
-            <!-- Mobile menu button -->
             <DisclosureButton
               class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
