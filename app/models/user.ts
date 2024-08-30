@@ -27,6 +27,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare discordId: string | null
 
+  @column()
+  declare discordUsername: string | null
+
   @beforeCreate()
   static async setUUID(user: User) {
     user.id = randomUUID()
@@ -34,6 +37,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   async unlinkDiscord() {
     this.discordId = null
+    this.discordUsername = null
     await this.save()
   }
 
