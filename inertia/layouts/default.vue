@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { router, usePage, Link } from '@inertiajs/vue3'
+import { router, usePage, Link, Head } from '@inertiajs/vue3'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import {
   Disclosure,
@@ -33,7 +33,7 @@ const navigation = ref([
   { name: 'Statistiques', href: '/stats', soon: true },
   { name: 'Mon Avancement', href: '/avancement' },
   { name: 'Wiki', href: '/wiki' },
-  { name: 'Paramètres', href: '/settings' },
+  { name: 'Paramètres', href: '/profile/settings' },
 ])
 
 // Utilisation de la page actuelle avec Inertia
@@ -44,6 +44,7 @@ const isActive = (href: string) => page.url === href
 </script>
 
 <template>
+  <Head :title="props.title" />
   <div class="min-h-full">
     <Disclosure v-slot="{ open }" as="nav" class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
