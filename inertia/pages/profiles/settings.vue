@@ -7,14 +7,23 @@ import Layout from '@/layouts/default.vue'
 
 const page = usePage()
 const user = computed(() => page.props.user as User)
+const errors = computed(() => page.props.errors)
 
-const changMail = reactive({
+const form = reactive({
   email: '',
+  currentPassword: '',
+  newPassword: '',
 })
 
 async function handleChangeMail() {
-  router.post('/profile/settings/changMail', changMail)
-  changMail.email = ''
+  router.post('/profile/settings/changMail', form)
+  form.email = ''
+}
+
+async function handleChangePassword() {
+  router.post('/profile/settings/changePassword', form)
+  form.newPassword = ''
+  form.currentPassword = ''
 }
 
 async function toggleDiscordLink() {
@@ -30,6 +39,11 @@ async function toggleDiscordLink() {
   <Layout title="Settings">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <div class="bg-white shadow rounded-lg p-6">
+        <div v-if="errors" class="text-red-500">
+          <div v-if="errors.email">
+            {{ errors.email[0] }}
+          </div>
+        </div>
         <h3 class="text-xl font-semibold mb-4">Changer l'Email</h3>
         <form @submit.prevent="handleChangeMail">
           <div class="mb-4">
@@ -39,7 +53,7 @@ async function toggleDiscordLink() {
             <div class="mt-2">
               <input
                 id="email"
-                v-model="changMail.email"
+                v-model="form.email"
                 type="email"
                 name="email"
                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -79,15 +93,23 @@ async function toggleDiscordLink() {
       </div>
 
       <div class="bg-white shadow rounded-lg p-6">
+        <div v-if="errors" class="text-red-500">
+          <div v-if="errors.newPassword">
+            {{ errors.newPassword[0] }}
+          </div>
+          <div v-if="errors.currentPassword">
+            {{ errors.currentPassword[0] }}
+          </div>
+        </div>
         <h3 class="text-xl font-semibold mb-4">Changer le Mot de Passe</h3>
-        <form @submit.prevent="changePassword">
+        <form @submit.prevent="handleChangePassword">
           <div class="mb-4">
             <label for="current-password" class="block text-sm font-medium text-gray-700">
               Mot de Passe Actuel
             </label>
             <input
               id="current-password"
-              v-model="currentPassword"
+              v-model="form.currentPassword"
               type="password"
               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               required
@@ -99,7 +121,7 @@ async function toggleDiscordLink() {
             </label>
             <input
               id="new-password"
-              v-model="newPassword"
+              v-model="form.newPassword"
               type="password"
               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               required

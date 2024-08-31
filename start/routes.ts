@@ -36,6 +36,9 @@ router
         router
           .post('/settings/changMail', [ProfilesController, 'changeMail'])
           .as('profile.settings.changmail')
+        router
+          .post('/settings/changePassword', [ProfilesController, 'changePassword'])
+          .as('profile.settings.changpassword')
       })
       .prefix('profile')
   })

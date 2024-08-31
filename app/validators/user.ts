@@ -12,3 +12,10 @@ export const emailValidator = vine.compile(
       }),
   }),
 )
+
+export const PasswordValidator = vine.compile(
+  vine.object({
+    currentPassword: vine.string().minLength(8),
+    newPassword: vine.string().minLength(8),
+  }),
+)
