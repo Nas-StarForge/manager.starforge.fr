@@ -2,6 +2,7 @@
 /// <reference path="../../config/inertia.ts" />
 
 import '../css/app.css'
+import 'vue-toastification/dist/index.css'
 
 import { createApp, h } from 'vue'
 import type { DefineComponent } from 'vue'
@@ -14,6 +15,7 @@ const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
 
 const options: PluginOptions = {
   position: POSITION.TOP_RIGHT,
+  timeout: 2000,
 }
 
 createInertiaApp({
