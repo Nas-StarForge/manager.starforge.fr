@@ -11,6 +11,7 @@ export default class extends BaseSchema {
       table.string('password').notNullable()
       table.string('discord_id').nullable()
       table.string('discord_username').nullable()
+      table.timestamp('last_username_chang_at').notNullable()
       table.timestamp('created_at').notNullable()
       table.timestamp('updated_at').nullable()
     })

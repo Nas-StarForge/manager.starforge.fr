@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import type { HttpContext } from '@adonisjs/core/http'
 
@@ -36,6 +37,30 @@ export default class ProfilesController {
 
     user.password = data.newPassword
     await user.save()
+
+    return response.redirect().toRoute('profile.settings')
+  }
+
+  async changeUsername({ request, auth, response, session }: HttpContext) {
+    const data = request.all()
+    const user = auth.user! as User
+
+    const thirtyDaysAgo = DateTime.now().minus({ days: 30 })
+
+    if (user.lastUsernameChangAt && user.lastUsernameChangAt > thirtyDaysAgo) {
+      return response.status(403).json({
+        error: "Vous ne pouvez changer votre pseudo qu'une fois tous les 30 jours",
+      })
+    }
+
+    user.username = data.username
+    user.lastUsernameChangAt = DateTime.now()
+    await user.save()
+
+    session.flash('toast', {
+      type: 'success',
+      message: 'Pseudo mise a jour !',
+    })
 
     return response.redirect().toRoute('profile.settings')
   }

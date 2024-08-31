@@ -30,9 +30,13 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare discordUsername: string | null
 
+  @column.dateTime()
+  declare lastUsernameChangAt: DateTime | null
+
   @beforeCreate()
   static async setUUID(user: User) {
     user.id = randomUUID()
+    user.lastUsernameChangAt = DateTime.now()
   }
 
   async unlinkDiscord() {
