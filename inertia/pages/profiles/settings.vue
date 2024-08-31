@@ -8,10 +8,14 @@ import Layout from '@/layouts/default.vue'
 const page = usePage()
 const user = computed(() => page.props.user as User)
 
-const form = reactive({
+const changMail = reactive({
   email: '',
-  password: '',
 })
+
+async function handleChangeMail() {
+  router.post('/profile/settings/changMail', changMail)
+  changMail.email = ''
+}
 
 async function toggleDiscordLink() {
   if (user.value.discordId) {
@@ -27,7 +31,7 @@ async function toggleDiscordLink() {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       <div class="bg-white shadow rounded-lg p-6">
         <h3 class="text-xl font-semibold mb-4">Changer l'Email</h3>
-        <form>
+        <form @submit.prevent="handleChangeMail">
           <div class="mb-4">
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
               Email
@@ -35,7 +39,7 @@ async function toggleDiscordLink() {
             <div class="mt-2">
               <input
                 id="email"
-                v-model="form.email"
+                v-model="changMail.email"
                 type="email"
                 name="email"
                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
