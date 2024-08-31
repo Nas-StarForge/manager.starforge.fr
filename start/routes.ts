@@ -39,6 +39,9 @@ router
         router
           .post('/settings/changePassword', [ProfilesController, 'changePassword'])
           .as('profile.settings.changpassword')
+        router
+          .post('/settings/changeUsername', [ProfilesController, 'changeUsername'])
+          .as('proifle.settings.changUsername')
       })
       .prefix('profile')
   })

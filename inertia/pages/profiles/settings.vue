@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { DateTime } from 'luxon'
 import { computed, reactive } from 'vue'
 import type User from '~/app/models/user'
 import { router, usePage } from '@inertiajs/vue3'
@@ -9,7 +10,16 @@ const page = usePage()
 const user = computed(() => page.props.user as User)
 const errors = computed(() => page.props.errors)
 
+const lastUsernameChangedAt = DateTime.fromISO(user.value.lastUsernameChangAt)
+const nextAvailableDate = lastUsernameChangedAt.plus({ days: 30 })
+const currentDate = DateTime.now()
+
+const canChangeUsername = computed(() => {
+  return currentDate >= nextAvailableDate
+})
+
 const form = reactive({
+  username: user.value.username || '',
   email: '',
   currentPassword: '',
   newPassword: '',
@@ -24,6 +34,10 @@ async function handleChangePassword() {
   router.post('/profile/settings/changePassword', form)
   form.newPassword = ''
   form.currentPassword = ''
+}
+
+async function handleChangeUsername() {
+  router.post('/profile/settings/changeUsername', form)
 }
 
 async function toggleDiscordLink() {
@@ -136,15 +150,16 @@ async function toggleDiscordLink() {
       <!-- Carte pour changer le pseudo avec une limite de temps -->
       <div class="bg-white shadow rounded-lg p-6">
         <h3 class="text-xl font-semibold mb-4">Changer le Pseudo</h3>
-        <form @submit.prevent="changeUsername">
+        <form @submit.prevent="handleChangeUsername">
           <div class="mb-4">
             <label for="username" class="block text-sm font-medium text-gray-700">
               Nouveau Pseudo
             </label>
             <input
               id="username"
-              v-model="user.username"
+              v-model="form.username"
               type="text"
+              :disabled="!canChangeUsername"
               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               required
             />
