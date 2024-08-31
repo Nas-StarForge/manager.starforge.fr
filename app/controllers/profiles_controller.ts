@@ -14,12 +14,17 @@ export default class ProfilesController {
     return inertia.render('profiles/settings')
   }
 
-  async changeMail({ request, auth, response }: HttpContext) {
+  async changeMail({ request, auth, response, session }: HttpContext) {
     const data = await request.validateUsing(emailValidator)
     const user = await User.findOrFail(auth.user!.id)
 
     user.merge({ email: data.email })
     await user.save()
+
+    session.flash('toast', {
+      type: 'success',
+      message: 'Email mis à jour !',
+    })
 
     return response.redirect().toRoute('profile.settings')
   }
@@ -29,14 +34,20 @@ export default class ProfilesController {
     const user = auth.user! as User
 
     if (!(await hash.verify(user.password, data.currentPassword))) {
-      session.flash('errors', {
-        currentPassword: ['password is invalid'],
+      session.flash('toast', {
+        type: 'error',
+        message: 'Le mot de passe est incorrect.',
       })
       return response.redirect().toRoute('profile.settings')
     }
 
     user.password = data.newPassword
     await user.save()
+
+    session.flash('toast', {
+      type: 'success',
+      message: 'Mot de passe mis à jour !',
+    })
 
     return response.redirect().toRoute('profile.settings')
   }
@@ -48,8 +59,9 @@ export default class ProfilesController {
     const thirtyDaysAgo = DateTime.now().minus({ days: 30 })
 
     if (user.lastUsernameChangAt && user.lastUsernameChangAt > thirtyDaysAgo) {
-      return response.status(403).json({
-        error: "Vous ne pouvez changer votre pseudo qu'une fois tous les 30 jours",
+      return session.flash('toast', {
+        type: 'warning',
+        message: "Vous ne pouvez changer votre pseudo qu'une fois tous les 30 jours",
       })
     }
 
