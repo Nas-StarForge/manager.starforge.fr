@@ -12,6 +12,8 @@ import {
   MenuItems,
 } from '@headlessui/vue'
 
+import Stoast from '@/components/stoast.vue'
+
 const props = defineProps<{
   title: string
 }>()
@@ -211,5 +213,6 @@ const isActive = (href: string) => page.url === href
         <slot />
       </div>
     </main>
+    <Stoast />
   </div>
 </template>
