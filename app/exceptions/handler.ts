@@ -1,7 +1,8 @@
-import app from '@adonisjs/core/services/app'
-import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
-import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
 import { errors } from '@adonisjs/auth'
+import app from '@adonisjs/core/services/app'
+import type { HttpContext } from '@adonisjs/core/http'
+import { ExceptionHandler } from '@adonisjs/core/http'
+import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   /**
@@ -32,8 +33,12 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    */
   async handle(error: unknown, ctx: HttpContext) {
     if (error instanceof errors.E_INVALID_CREDENTIALS) {
-      ctx.session.flash({ errors: { message: 'Invalid credentials' } })
+      ctx.session.flash('toast', {
+        type: 'error',
+        message: 'Vos identifiants sont incorrects !',
+      })
     }
+
     return super.handle(error, ctx)
   }
 

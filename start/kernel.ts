@@ -15,7 +15,7 @@ import server from '@adonisjs/core/services/server'
  * The error handler is used to convert an exception
  * to a HTTP response.
  */
-server.errorHandler(() => import('#exceptions/handler'))
+server.errorHandler(() => import('#exceptions/validator_exception'))
 
 /**
  * The server middleware stack runs middleware on all the HTTP
