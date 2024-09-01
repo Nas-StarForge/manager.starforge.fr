@@ -1,16 +1,8 @@
 <script lang="ts" setup>
-import { computed, reactive } from 'vue'
-import { router, usePage } from '@inertiajs/vue3'
+import { reactive } from 'vue'
+import { router } from '@inertiajs/vue3'
 
-const page = usePage()
-
-const errors = computed(() => {
-  return page.props.errors
-})
-
-const numErrors = computed(() => {
-  return errors.value ? Object.keys(errors.value).length : 0
-})
+import Stoast from '@/components/stoast.vue'
 
 const form = reactive({
   email: '',
@@ -24,6 +16,7 @@ function handleSubmit() {
 </script>
 
 <template>
+  <Stoast />
   <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img
@@ -37,26 +30,11 @@ function handleSubmit() {
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <div v-if="errors" class="rounded-md bg-red-50 p-4">
-        <div class="flex">
-          <div class="flex-shrink-0"></div>
-          <div class="ml-3">
-            <h3 class="text-sm font-medium text-red-800">
-              There were {{ numErrors }} errors with your submission
-            </h3>
-            <div class="mt-2 text-sm text-red-700">
-              <ul role="list" class="list-disc space-y-1 pl-5">
-                <li v-for="(error, index) in errors" key="index">{{ error[0] }}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <form @submit.prevent="handleSubmit" class="space-y-6">
+      <form class="space-y-6" @submit.prevent="handleSubmit">
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900"
-            >Username</label
-          >
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">
+            Username
+          </label>
           <div class="mt-2">
             <input
               id="username"
@@ -67,9 +45,9 @@ function handleSubmit() {
           </div>
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium leading-6 text-gray-900"
-            >Email address</label
-          >
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
+            Email address
+          </label>
           <div class="mt-2">
             <input
               id="email"
@@ -82,9 +60,9 @@ function handleSubmit() {
 
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm font-medium leading-6 text-gray-900"
-              >Password</label
-            >
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">
+              Password
+            </label>
           </div>
           <div class="mt-2">
             <input
@@ -109,9 +87,9 @@ function handleSubmit() {
       <p class="mt-10 text-center text-sm text-gray-500">
         Not a member?
         {{ ' ' }}
-        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >Start a 14 day free trial</a
-        >
+        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          Start a 14 day free trial
+        </a>
       </p>
     </div>
   </div>
