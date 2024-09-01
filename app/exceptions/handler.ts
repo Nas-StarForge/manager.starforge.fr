@@ -1,7 +1,8 @@
-import { errors } from '@adonisjs/auth'
 import app from '@adonisjs/core/services/app'
+import { errors as authError } from '@adonisjs/auth'
 import type { HttpContext } from '@adonisjs/core/http'
 import { ExceptionHandler } from '@adonisjs/core/http'
+import { errors as validatorError } from '@vinejs/vine'
 import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
@@ -32,10 +33,19 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    * response to the client
    */
   async handle(error: unknown, ctx: HttpContext) {
-    if (error instanceof errors.E_INVALID_CREDENTIALS) {
+    if (error instanceof authError.E_INVALID_CREDENTIALS) {
       ctx.session.flash('toast', {
         type: 'error',
         message: 'Vos identifiants sont incorrects !',
+      })
+    }
+
+    if (error instanceof validatorError.E_VALIDATION_ERROR) {
+      error.messages.map((item: { detail: string }) => {
+        ctx.session.flash('toast', {
+          type: 'error',
+          message: item.detail,
+        })
       })
     }
 
