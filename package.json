@@ -22,6 +22,8 @@
     "#events/*": "./app/events/*.js",
     "#middleware/*": "./app/middleware/*.js",
     "#validators/*": "./app/validators/*.js",
+    "#policies/*": "./app/policies/*/js",
+    "#abilities/*": "./app/abilities/*/js",
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
     "#types/*": "./types/*.js"

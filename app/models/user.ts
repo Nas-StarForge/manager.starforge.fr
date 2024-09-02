@@ -3,8 +3,12 @@ import { randomUUID } from 'node:crypto'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
+import { ManyToMany } from '@adonisjs/lucid/types/relations'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
+import { BaseModel, beforeCreate, column, manyToMany } from '@adonisjs/lucid/orm'
+
+import Role from '#models/role'
+import type Permission from '#models/permission'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -33,6 +37,11 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column.dateTime()
   declare lastUsernameChangAt: DateTime | null
 
+  @manyToMany(() => Role, {
+    pivotTable: 'user_roles',
+  })
+  declare roles: ManyToMany<typeof Role>
+
   @beforeCreate()
   static async setUUID(user: User) {
     user.id = randomUUID()
@@ -43,6 +52,13 @@ export default class User extends compose(BaseModel, AuthFinder) {
     this.discordId = null
     this.discordUsername = null
     await this.save()
+  }
+
+  async hasPermission(permissionName: string): Promise<boolean> {
+    const roles = await this.related('roles').query().preload('permissions')
+    return roles.some((role: Role) =>
+      role.permissions.some((permission: Permission) => permission.name === permissionName),
+    )
   }
 
   @column.dateTime({ autoCreate: true })
