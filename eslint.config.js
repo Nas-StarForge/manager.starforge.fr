@@ -1,6 +1,6 @@
-import { julr } from '@julr/tooling-configs/eslint'
+import { nas } from '@nas-studios/tooling-configs/eslint'
 
-export default julr({
+export default nas({
   typescript: {
     tsconfigPath: ['./tsconfig.json', './inertia/tsconfig.json'],
     typeAwareRules: false,

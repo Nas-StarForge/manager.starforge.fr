@@ -2,6 +2,8 @@ import router from '@adonisjs/core/services/router'
 
 import { middleware } from '#start/kernel'
 
+const HomeDashboardController = () => import('#controllers/dashboard/home_controller')
+
 const ProfilesController = () => import('#controllers/profiles_controller')
 const DiscordsController = () => import('#controllers/discords_controller')
 
@@ -44,5 +46,11 @@ router
           .as('proifle.settings.changUsername')
       })
       .prefix('profile')
+
+    router
+      .group(() => {
+        router.get('/', [HomeDashboardController, 'index'])
+      })
+      .prefix('dashboard')
   })
   .use(middleware.auth())
