@@ -12,4 +12,6 @@
 |
 */
 
-export const policies = {}
+export const policies = {
+  DashboardPolicy: () => import('#policies/dashboard_policy')
+}

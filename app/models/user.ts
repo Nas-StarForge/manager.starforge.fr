@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import { ManyToMany } from '@adonisjs/lucid/types/relations'
+import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 import { BaseModel, beforeCreate, column, manyToMany } from '@adonisjs/lucid/orm'
 

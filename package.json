@@ -22,8 +22,8 @@
     "#events/*": "./app/events/*.js",
     "#middleware/*": "./app/middleware/*.js",
     "#validators/*": "./app/validators/*.js",
-    "#policies/*": "./app/policies/*/js",
-    "#abilities/*": "./app/abilities/*/js",
+    "#policies/*": "./app/policies/*.js",
+    "#abilities/*": "./app/abilities/*.js",
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
     "#types/*": "./types/*.js"
@@ -67,6 +67,7 @@
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "@inertiajs/vue3": "^1.2.0",
+    "@nas-studios/tooling-configs": "^2.1.3",
     "@vinejs/vine": "^2.1.0",
     "edge.js": "^6.0.2",
     "luxon": "^3.5.0",
@@ -81,5 +82,5 @@
       "./app/middleware/*.ts"
     ]
   },
-  "prettier": "@julr/tooling-configs/prettier"
+  "prettier": "@nas-studios/tooling-configs/prettier"
 }
