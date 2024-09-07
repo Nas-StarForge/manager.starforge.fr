@@ -23,18 +23,18 @@ onMounted(() => {
 watch(
   () => page.props.toast,
   async (newVal: ToasterType) => {
-   if (newVal) {
-     toast(newVal.message, {
-       type: newVal.type as TYPE,
-     })
+    if (newVal) {
+      toast(newVal.message, {
+        type: newVal.type as TYPE,
+      })
 
-     setTimeout(() => {
-       const redirect = page.props.redirect
-       if (redirect) {
-         router.reload(redirect)
-       }
-     }, 2000)
-   }
+      setTimeout(() => {
+        const redirect = page.props.redirect
+        if (redirect) {
+          router.reload(redirect)
+        }
+      }, 2000)
+    }
   },
 )
 </script>

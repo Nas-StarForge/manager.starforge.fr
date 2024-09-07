@@ -18,12 +18,9 @@ const user = computed(() => page.props.user as User)
           <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ user.username }}</h1>
           <h3 class="text-gray-600 font-lg text-semibold leading-6">Fondateur</h3>
           <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">
-            Fondateur et développeur de StarForge, je mes tout en oeuvre pour vous offrir la
-            meilleure expérience possible.
+            Fondateur et développeur de StarForge, je mes tout en oeuvre pour vous offrir la meilleure expérience possible.
           </p>
-          <ul
-            class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm"
-          >
+          <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
             <li class="flex items-center py-3">
               <span>Status</span>
               <span class="ml-auto">
@@ -65,9 +62,7 @@ const user = computed(() => page.props.user as User)
               </div>
             </div>
           </div>
-          <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg p-3 my-4">
-            Plus de nouveautés bientôt
-          </button>
+          <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg p-3 my-4">Plus de nouveautés bientôt</button>
         </div>
         <!-- End of about section -->
       </div>

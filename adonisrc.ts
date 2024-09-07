@@ -39,7 +39,7 @@ export default defineConfig({
     () => import('@adonisjs/auth/auth_provider'),
     () => import('@adonisjs/inertia/inertia_provider'),
     () => import('@adonisjs/ally/ally_provider'),
-    () => import('@adonisjs/bouncer/bouncer_provider')
+    () => import('@adonisjs/bouncer/bouncer_provider'),
   ],
 
   /*
@@ -50,11 +50,7 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [
-    () => import('#start/routes'),
-    () => import('#start/kernel'),
-    () => import('#start/validator'),
-  ],
+  preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/validator')],
 
   /*
   |--------------------------------------------------------------------------

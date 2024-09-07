@@ -56,9 +56,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   async hasPermission(permissionName: string): Promise<boolean> {
     const roles = await this.related('roles').query().preload('permissions')
-    return roles.some((role: Role) =>
-      role.permissions.some((permission: Permission) => permission.name === permissionName),
-    )
+    return roles.some((role: Role) => role.permissions.some((permission: Permission) => permission.name === permissionName))
   }
 
   @column.dateTime({ autoCreate: true })

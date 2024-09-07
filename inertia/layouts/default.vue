@@ -2,15 +2,7 @@
 import { ref } from 'vue'
 import { router, usePage, Link, Head } from '@inertiajs/vue3'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 
 import Stoast from '@/components/stoast.vue'
 
@@ -51,11 +43,7 @@ const isActive = (href: string) => page.url === href
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="flex-shrink-0">
-              <img
-                class="h-8 w-8"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt="Your Company"
-              />
+              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -64,20 +52,11 @@ const isActive = (href: string) => page.url === href
                   :key="item.name"
                   :href="item.href"
                   class="rounded-md px-3 py-2 text-sm font-medium"
-                  :class="[
-                    isActive(item.href)
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                  ]"
+                  :class="[isActive(item.href) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
                   :aria-current="isActive(item.href) ? 'page' : undefined"
                 >
                   {{ item.name }}
-                  <span
-                    v-if="item.soon"
-                    class="ml-2 inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800"
-                  >
-                    Soon
-                  </span>
+                  <span v-if="item.soon" class="ml-2 inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">Soon</span>
                 </Link>
               </div>
             </div>
@@ -114,11 +93,7 @@ const isActive = (href: string) => page.url === href
                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
-                      <a
-                        class="block px-4 py-2 text-sm text-gray-700"
-                        :class="[active ? 'bg-gray-100' : '']"
-                        @click="item.handle"
-                      >
+                      <a class="block px-4 py-2 text-sm text-gray-700" :class="[active ? 'bg-gray-100' : '']" @click="item.handle">
                         {{ item.name }}
                       </a>
                     </MenuItem>
@@ -148,20 +123,11 @@ const isActive = (href: string) => page.url === href
             as="a"
             :href="item.href"
             class="block rounded-md px-3 py-2 text-base font-medium"
-            :class="[
-              isActive(item.href)
-                ? 'bg-gray-900 text-white'
-                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            ]"
+            :class="[isActive(item.href) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']"
             :aria-current="isActive(item.href) ? 'page' : undefined"
           >
             {{ item.name }}
-            <span
-              v-if="item.soon"
-              class="ml-2 inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800"
-            >
-              Soon
-            </span>
+            <span v-if="item.soon" class="ml-2 inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">Soon</span>
           </DisclosureButton>
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">

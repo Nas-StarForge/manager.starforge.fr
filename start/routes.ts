@@ -35,15 +35,9 @@ router
       .group(() => {
         router.get('/', [ProfilesController, 'show']).as('profile')
         router.get('/settings', [ProfilesController, 'showSettings']).as('profile.settings')
-        router
-          .post('/settings/changMail', [ProfilesController, 'changeMail'])
-          .as('profile.settings.changmail')
-        router
-          .post('/settings/changePassword', [ProfilesController, 'changePassword'])
-          .as('profile.settings.changpassword')
-        router
-          .post('/settings/changeUsername', [ProfilesController, 'changeUsername'])
-          .as('proifle.settings.changUsername')
+        router.post('/settings/changMail', [ProfilesController, 'changeMail']).as('profile.settings.changmail')
+        router.post('/settings/changePassword', [ProfilesController, 'changePassword']).as('profile.settings.changpassword')
+        router.post('/settings/changeUsername', [ProfilesController, 'changeUsername']).as('proifle.settings.changUsername')
       })
       .prefix('profile')
 

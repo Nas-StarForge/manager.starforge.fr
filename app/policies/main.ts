@@ -13,5 +13,5 @@
 */
 
 export const policies = {
-  DashboardPolicy: () => import('#policies/dashboard_policy')
+  DashboardPolicy: () => import('#policies/dashboard_policy'),
 }

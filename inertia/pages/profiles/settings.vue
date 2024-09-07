@@ -61,9 +61,7 @@ async function toggleDiscordLink() {
         <h3 class="text-xl font-semibold mb-4">Changer l'Email</h3>
         <form @submit.prevent="handleChangeMail">
           <div class="mb-4">
-            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-              Email
-            </label>
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
             <div class="mt-2">
               <input
                 id="email"
@@ -75,9 +73,7 @@ async function toggleDiscordLink() {
               />
             </div>
           </div>
-          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            Mettre à jour l'Email
-          </button>
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Mettre à jour l'Email</button>
         </form>
       </div>
 
@@ -88,21 +84,11 @@ async function toggleDiscordLink() {
             Compte lié:
             <strong>{{ user.discordUsername }}</strong>
           </p>
-          <button
-            class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
-            @click="toggleDiscordLink"
-          >
-            Délier le Compte Discord
-          </button>
+          <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600" @click="toggleDiscordLink">Délier le Compte Discord</button>
         </div>
         <div v-else>
           <p class="text-gray-500 mb-4">Aucun compte Discord lié</p>
-          <a
-            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-            href="/discord/link"
-          >
-            Lier le Compte Discord
-          </a>
+          <a class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600" href="/discord/link">Lier le Compte Discord</a>
         </div>
       </div>
 
@@ -118,9 +104,7 @@ async function toggleDiscordLink() {
         <h3 class="text-xl font-semibold mb-4">Changer le Mot de Passe</h3>
         <form @submit.prevent="handleChangePassword">
           <div class="mb-4">
-            <label for="current-password" class="block text-sm font-medium text-gray-700">
-              Mot de Passe Actuel
-            </label>
+            <label for="current-password" class="block text-sm font-medium text-gray-700">Mot de Passe Actuel</label>
             <input
               id="current-password"
               v-model="form.currentPassword"
@@ -130,9 +114,7 @@ async function toggleDiscordLink() {
             />
           </div>
           <div class="mb-4">
-            <label for="new-password" class="block text-sm font-medium text-gray-700">
-              Nouveau Mot de Passe
-            </label>
+            <label for="new-password" class="block text-sm font-medium text-gray-700">Nouveau Mot de Passe</label>
             <input
               id="new-password"
               v-model="form.newPassword"
@@ -141,9 +123,7 @@ async function toggleDiscordLink() {
               required
             />
           </div>
-          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-            Changer le Mot de Passe
-          </button>
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Changer le Mot de Passe</button>
         </form>
       </div>
 
@@ -152,9 +132,7 @@ async function toggleDiscordLink() {
         <h3 class="text-xl font-semibold mb-4">Changer le Pseudo</h3>
         <form @submit.prevent="handleChangeUsername">
           <div class="mb-4">
-            <label for="username" class="block text-sm font-medium text-gray-700">
-              Nouveau Pseudo
-            </label>
+            <label for="username" class="block text-sm font-medium text-gray-700">Nouveau Pseudo</label>
             <input
               id="username"
               v-model="form.username"
@@ -164,16 +142,10 @@ async function toggleDiscordLink() {
               required
             />
           </div>
-          <button
-            :disabled="!canChangeUsername"
-            type="submit"
-            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300"
-          >
+          <button :disabled="!canChangeUsername" type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300">
             Changer le Pseudo
           </button>
-          <p v-if="!canChangeUsername" class="mt-2 text-sm text-red-500">
-            Vous devez attendre 30 jours avant de changer à nouveau votre pseudo.
-          </p>
+          <p v-if="!canChangeUsername" class="mt-2 text-sm text-red-500">Vous devez attendre 30 jours avant de changer à nouveau votre pseudo.</p>
         </form>
       </div>
     </div>

@@ -6,11 +6,7 @@ import inertia from '@adonisjs/inertia/client'
 import { getDirname } from '@adonisjs/core/helpers'
 
 export default defineConfig({
-  plugins: [
-    inertia({ ssr: { enabled: false } }),
-    vue(),
-    adonisjs({ entrypoints: ['inertia/app/app.ts'], reload: ['resources/views/**/*.edge'] }),
-  ],
+  plugins: [inertia({ ssr: { enabled: false } }), vue(), adonisjs({ entrypoints: ['inertia/app/app.ts'], reload: ['resources/views/**/*.edge'] })],
 
   resolve: {
     alias: {
