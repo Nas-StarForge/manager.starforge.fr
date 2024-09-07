@@ -25,7 +25,7 @@ const userNavigation = [
 const navigation = ref([
   { name: 'Profil', href: '/profile' },
   { name: 'Statistiques', href: '/stats', soon: true },
-  { name: 'Mon Avancement', href: '/avancement' },
+  { name: 'Mon Avancement', href: '/avancement', soon: true },
   { name: 'Wiki', href: '/wiki' },
   { name: 'Paramètres', href: '/profile/settings' },
 ])

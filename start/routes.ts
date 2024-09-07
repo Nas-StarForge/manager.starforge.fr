@@ -1,6 +1,7 @@
 import router from '@adonisjs/core/services/router'
 
 import { middleware } from '#start/kernel'
+import DashboardPostsController from '#controllers/dashboard/posts_controller'
 
 const HomeDashboardController = () => import('#controllers/dashboard/home_controller')
 
@@ -44,6 +45,11 @@ router
     router
       .group(() => {
         router.get('/', [HomeDashboardController, 'index'])
+
+        router.group(() =>  {
+          router.get('/', [DashboardPostsController, 'index']).as('dashboard.posts')
+          router.get('/create', [DashboardPostsController, 'create']).as('dashboard.posts.create')
+        }).prefix('/posts')
       })
       .prefix('dashboard')
   })
