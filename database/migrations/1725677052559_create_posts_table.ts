@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.string('id')
       table.string('title').notNullable()
       table.text('content').notNullable()
-      table.string('image_url').notNullable()
+      table.json('image_url').nullable()
       table.string('user_id').references('id').inTable('users').onDelete('CASCADE')
       table.timestamp('published_at').nullable()
       table.enum('status', ['draft', 'publish']).defaultTo('draft').notNullable()

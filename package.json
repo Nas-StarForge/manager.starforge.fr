@@ -67,6 +67,7 @@
     "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "@inertiajs/vue3": "^1.2.0",
+    "@jrmc/adonis-attachment": "^2.3.0",
     "@nas-studios/tooling-configs": "^2.1.3",
     "@vinejs/vine": "^2.1.0",
     "edge.js": "^6.0.2",

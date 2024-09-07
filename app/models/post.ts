@@ -1,11 +1,14 @@
 import { DateTime } from 'luxon'
 import { randomUUID } from 'node:crypto'
-import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+import { compose } from '@adonisjs/core/helpers'
+import { BelongsTo } from '@adonisjs/lucid/types/relations'
+import { attachment, Attachmentable } from '@jrmc/adonis-attachment'
+import { Attachment } from '@jrmc/adonis-attachment/types/attachment'
 import { BaseModel, beforeCreate, belongsTo, column } from '@adonisjs/lucid/orm'
 
 import User from '#models/user'
 
-export default class Post extends BaseModel {
+export default class Post extends compose(BaseModel, Attachmentable) {
   @column({ isPrimary: true })
   declare id: string
 
@@ -15,8 +18,8 @@ export default class Post extends BaseModel {
   @column()
   declare content: string
 
-  @column()
-  declare imageUrl: string
+  @attachment({ preComputeUrl: true, folder: 'uploads/posts' })
+  declare imageUrl: Attachment
 
   @column()
   declare userId: string
