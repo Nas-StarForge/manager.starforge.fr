@@ -13,10 +13,16 @@
 */
 
 import { Bouncer } from '@adonisjs/bouncer'
+
+import type User from '#models/user'
 /**
  * Delete the following ability to start from
  * scratch
  */
+
+export const viewDashboard = Bouncer.ability((user: User) => {
+  return user.hasPermission('Dashboard')
+})
 export const editUser = Bouncer.ability(() => {
   return true
 })

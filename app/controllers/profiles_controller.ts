@@ -3,6 +3,7 @@ import hash from '@adonisjs/core/services/hash'
 import type { HttpContext } from '@adonisjs/core/http'
 
 import User from '#models/user'
+import { viewDashboard } from '#abilities/main'
 import { emailValidator, PasswordValidator } from '#validators/user'
 
 export default class ProfilesController {
@@ -10,7 +11,8 @@ export default class ProfilesController {
     return inertia.render('profiles/show')
   }
 
-  async showSettings({ inertia }: HttpContext) {
+  async showSettings({ inertia, bouncer }: HttpContext) {
+    await bouncer.authorize(viewDashboard)
     return inertia.render('profiles/settings')
   }
 

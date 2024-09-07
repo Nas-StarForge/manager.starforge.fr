@@ -3,6 +3,7 @@ import { errors as authError } from '@adonisjs/auth'
 import type { HttpContext } from '@adonisjs/core/http'
 import { ExceptionHandler } from '@adonisjs/core/http'
 import { errors as validatorError } from '@vinejs/vine'
+import { errors as bouncerError } from '@adonisjs/bouncer'
 import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
@@ -40,6 +41,15 @@ export default class HttpExceptionHandler extends ExceptionHandler {
       })
     }
 
+    if (error instanceof authError.E_UNAUTHORIZED_ACCESS) {
+      ctx.session.flash('toast', {
+        type: 'error',
+        message: 'Vous devez être connecté pour accéder à cette page.',
+      })
+
+      return ctx.response.redirect().toRoute('auth.login')
+    }
+
     if (error instanceof validatorError.E_VALIDATION_ERROR) {
       error.messages.map((item: { detail: string }) => {
         ctx.session.flash('toast', {
@@ -47,6 +57,15 @@ export default class HttpExceptionHandler extends ExceptionHandler {
           message: item.detail,
         })
       })
+    }
+
+    if (error instanceof bouncerError.E_AUTHORIZATION_FAILURE) {
+      ctx.session.flash('toast', {
+        type: 'error',
+        message: "Vous n'êtes pas autorisé à accéder à cette page.",
+      })
+
+      return ctx.response.redirect().back()
     }
 
     return super.handle(error, ctx)
