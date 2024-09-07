@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon'
 import { randomUUID } from 'node:crypto'
 import { compose } from '@adonisjs/core/helpers'
-import { BelongsTo } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import { attachment, Attachmentable } from '@jrmc/adonis-attachment'
-import { Attachment } from '@jrmc/adonis-attachment/types/attachment'
+import type { Attachment } from '@jrmc/adonis-attachment/types/attachment'
 import { BaseModel, beforeCreate, belongsTo, column } from '@adonisjs/lucid/orm'
 
 import User from '#models/user'
