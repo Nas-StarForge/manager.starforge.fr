@@ -1,4 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
+import { attachmentManager } from '@jrmc/adonis-attachment'
+
 import Post from '#models/post'
 
 export default class DashboardPostsController {
@@ -9,5 +11,17 @@ export default class DashboardPostsController {
 
   async create({ inertia }: HttpContext) {
     return inertia.render('dashboard/posts/create')
+  }
+
+  async store({ request, response }: HttpContext) {
+    const avatar = request.file('images')!
+    const data = request.body()
+    await Post.create({
+      title: data.title,
+      content: data.content,
+      imageUrl: await attachmentManager.createFromFile(avatar),
+      status: data.status,
+    })
+    return response.redirect().toRoute('dashboard.posts.index')
   }
 }
