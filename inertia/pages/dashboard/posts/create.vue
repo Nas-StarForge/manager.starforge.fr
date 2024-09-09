@@ -91,7 +91,7 @@ async function handleSubmit() {
             </div>
           </div>
 
-          <div class="border-b border-gray-900/10 pb-12">
+          <div class="pb-12">
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div class="sm:col-span-3">
                 <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Status</label>
@@ -108,11 +108,11 @@ async function handleSubmit() {
           </div>
         </div>
 
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-          <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+        <div class="mb-8 flex items-center justify-end gap-x-6">
+          <button type="button" class="text-sm font-semibold text-gray-900">Annuler</button>
           <button type="submit"
-                  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-            Save
+                  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+            Sauvegarder
           </button>
         </div>
       </form>
