@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-slate-100">
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog class="relative z-50 lg:hidden" @close="sidebarOpen = false">
         <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0"
@@ -35,11 +35,11 @@
                     <li>
                       <ul role="list" class="-mx-2 space-y-1">
                         <li v-for="item in navigation" :key="item.name">
-                          <a :href="item.href"
+                          <Link :href="item.href"
                              :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6']">
                             <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
                             {{ item.name }}
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
@@ -72,11 +72,11 @@
             <li>
               <ul role="list" class="-mx-2 space-y-1">
                 <li v-for="item in navigation" :key="item.name">
-                  <a :href="item.href"
+                  <Link :href="item.href"
                      :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6']">
                     <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
                     {{ item.name }}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -132,7 +132,10 @@
 
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
-          <slot />
+          <Breadcrumb/>
+          <div class="pt-4">
+            <slot />
+          </div>
         </div>
       </main>
     </div>
@@ -161,11 +164,13 @@ import {
   XMarkIcon
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+import { Link } from '@inertiajs/vue3'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   { name: 'Users', href: '#', icon: UsersIcon, current: false },
-  { name: 'Posts', href: '#', icon: DocumentDuplicateIcon, current: false },
+  { name: 'Posts', href: '/dashboard/posts', icon: DocumentDuplicateIcon, current: false },
   { name: 'Shop', href: '#', icon: FolderIcon, current: false },
 ]
 
