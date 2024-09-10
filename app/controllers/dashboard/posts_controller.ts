@@ -22,6 +22,6 @@ export default class DashboardPostsController {
       imageUrl: await attachmentManager.createFromFile(avatar),
       status: data.status,
     })
-    return response.redirect().toRoute('dashboard.posts.index')
+    return response.redirect().toRoute('dashboard.posts')
   }
 }
