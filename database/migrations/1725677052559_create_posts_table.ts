@@ -7,7 +7,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.string('id')
       table.string('title').notNullable()
-      table.text('content').notNullable()
+      table.json('content').nullable()
       table.json('image_url').nullable()
       table.string('user_id').references('id').inTable('users').onDelete('CASCADE')
       table.timestamp('published_at').nullable()
