@@ -10,7 +10,7 @@ const breadcrumbPages = computed(() => {
   if (page.url === '/dashboard') {
     return [ {
       name: 'Home',
-      href: '/dashboard'
+      href: ''
     } ]
   }
 
@@ -18,7 +18,7 @@ const breadcrumbPages = computed(() => {
 
   return filteredSegments.map((segment, index) => ({
     name: segment.charAt(0).toUpperCase() + segment.slice(1),
-    href: '/' + filteredSegments.slice(0, index + 1).join('/')
+    href: '' + filteredSegments.slice(0, index + 1).join('/')
   }))
 })
 </script>
@@ -41,7 +41,7 @@ const breadcrumbPages = computed(() => {
             <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
           </svg>
           <a
-            :href="page.href"
+            :href="/dashboard/ + page.href"
             class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
             :aria-current="index === breadcrumbPages.length - 1 ? 'page' : undefined"
           >
