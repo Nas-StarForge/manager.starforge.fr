@@ -9,10 +9,8 @@ defineProps<{
 
 <template>
   <div>
-    <!-- Slot pour insérer un contenu personnalisé, comme des boutons -->
     <div class="sm:flex sm:items-center">
       <div class="sm:flex-auto">
-        <!-- Injecter du contenu personnalisé via un slot -->
         <slot name="header"></slot>
       </div>
     </div>
@@ -37,7 +35,14 @@ defineProps<{
               <tr v-for="(row, index) in data" :key="index">
                 <td v-for="(column, colIndex) in columns" :key="colIndex"
                     class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                  {{ row[column.field] }}
+                  <span v-if="column.field === 'roles'">
+                      <span v-for="(role, roleIndex) in row.roles" :key="roleIndex">
+                        {{ role.name }}<span v-if="roleIndex < row.roles.length - 1">, </span>
+                      </span>
+                    </span>
+                  <span v-else>
+                      {{ row[column.field] }}
+                    </span>
                 </td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <slot name="actions" :row="row"></slot>
