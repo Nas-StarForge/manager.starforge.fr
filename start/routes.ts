@@ -52,6 +52,7 @@ router
             router.get('/', [DashboardPostsController, 'index']).as('dashboard.posts')
             router.get('/create', [DashboardPostsController, 'create']).as('dashboard.posts.create')
             router.post('/', [DashboardPostsController, 'store']).as('dashboard.posts.store')
+            router.delete('/:id', [DashboardPostsController, 'destroy']).as('dashboard.posts.destroy')
           })
           .prefix('/posts')
       })

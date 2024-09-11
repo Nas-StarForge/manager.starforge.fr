@@ -25,4 +25,10 @@ export default class DashboardPostsController {
     })
     return response.redirect().toRoute('dashboard.posts')
   }
+
+  async destroy({ params, response }: HttpContext) {
+    const post = await Post.findOrFail(params.id)
+    await post.delete()
+    return response.redirect().toRoute('dashboard.posts')
+  }
 }
