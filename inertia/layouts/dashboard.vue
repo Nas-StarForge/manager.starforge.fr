@@ -8,7 +8,7 @@
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
           <Breadcrumb/>
-          <Stoast />
+          <toast />
           <div class="pt-4">
             <slot />
           </div>
@@ -24,7 +24,7 @@ import Sidebar from '@/components/dashboard/layouts/Sidebar.vue'
 import Header from '@/components/dashboard/layouts/Header.vue'
 import UserMenu from '@/components/dashboard/layouts/UserMenu.vue'
 import Breadcrumb from '@/components/dashboard/layouts/Breadcrumb.vue'
-import Stoast from '@/components/stoast.vue'
+import toast from '@/components/toast.vue'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: 'HomeIcon' },

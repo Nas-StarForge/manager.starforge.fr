@@ -4,7 +4,7 @@ import { router, usePage, Link, Head } from '@inertiajs/vue3'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 
-import Stoast from '@/components/stoast.vue'
+import toast from '@/components/toast.vue'
 
 const props = defineProps<{
   title: string
@@ -179,6 +179,6 @@ const isActive = (href: string) => page.url === href
         <slot />
       </div>
     </main>
-    <Stoast />
+    <toast />
   </div>
 </template>

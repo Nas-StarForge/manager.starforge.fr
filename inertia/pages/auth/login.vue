@@ -2,7 +2,7 @@
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 
-import Stoast from '@/components/stoast.vue'
+import Stoast from '@/components/toast.vue'
 
 const form = reactive({
   email: '',
