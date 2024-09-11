@@ -1,0 +1,309 @@
+{
+  "ops": [
+    {
+      "insert": "Nous sommes ravis de vous annoncer le lancement officiel de "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "\"Épopée Interstellaire\""
+    },
+    {
+      "insert": ", notre tout nouveau serveur Minecraft unique en son genre ! Ce projet ambitieux a été conçu de A à Z, avec des "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "plugins et mods personnalisés"
+    },
+    {
+      "insert": ", permettant aux joueurs de vivre des aventures épiques à travers différentes "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "dimensions et planètes"
+    },
+    {
+      "insert": ".\r\n\r\n"
+    },
+    {
+      "attributes": {
+        "underline": "1",
+        "bold": "1"
+      },
+      "insert": "Qu’est-ce que \"Épopée Interstellaire\" ?"
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "insert": "\r\nPlongez dans un univers de science-fiction où l'humanité a colonisé des mondes lointains, mais où une "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "ancienne menace"
+    },
+    {
+      "insert": " plane encore dans l'ombre. En tant qu'aventurier, vous rejoindrez des "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "colonies humaines"
+    },
+    {
+      "insert": " pour défendre l'univers en accomplissant des quêtes, en explorant des territoires inédits et en découvrant des secrets millénaires.\r\n\r\nNotre serveur est structuré autour de plusieurs "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "actes"
+    },
+    {
+      "insert": " progressifs qui débloquent du contenu inédit à chaque étape, tels que de nouvelles villes, planètes et défis à surmonter. Chaque joueur peut rejoindre une "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "ville unique"
+    },
+    {
+      "insert": " avec ses propres caractéristiques et quêtes, ce qui garantit une expérience immersive et diversifiée.\r\n"
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "underline": "1",
+        "bold": "1"
+      },
+      "insert": "Structure des Actes"
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "insert": "\r\nDès l'"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Acte 1"
+    },
+    {
+      "insert": ", vous découvrirez les premières traces de la menace ancienne, tout en explorant les "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "villes d'Aeternum et de Sylvanus"
+    },
+    {
+      "insert": " dans l'Overworld. Ce n’est que le début ! Au fur et à mesure des actes suivants, vous aurez accès à des "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "dimensions dangereuses"
+    },
+    {
+      "insert": ", comme le "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Nether"
+    },
+    {
+      "insert": " et l'"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "End"
+    },
+    {
+      "insert": ", et des planètes incroyables comme "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Luna"
+    },
+    {
+      "insert": ", "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Mars"
+    },
+    {
+      "insert": " et "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Aquor"
+    },
+    {
+      "insert": ".\r\n\r\nChaque acte proposera une "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "durée"
+    },
+    {
+      "insert": " et des "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "objectifs spécifiques"
+    },
+    {
+      "insert": ", avec des quêtes principales et secondaires riches en contenu, vous immergeant toujours plus dans l’univers de \"Épopée Interstellaire\".\r\n"
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "underline": "1",
+        "bold": "1"
+      },
+      "insert": "Pourquoi rejoindre notre serveur ?"
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Exploration infinie"
+    },
+    {
+      "insert": " : Découvrez des planètes et dimensions jamais vues."
+    },
+    {
+      "attributes": {
+        "list": "bullet"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Quêtes immersives"
+    },
+    {
+      "insert": " : Résolvez des mystères, combattez des créatures uniques et bâtissez des bases avancées."
+    },
+    {
+      "attributes": {
+        "list": "bullet"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Système de ville personnalisé"
+    },
+    {
+      "insert": " : Participez à l’expansion et la défense de votre cité."
+    },
+    {
+      "attributes": {
+        "list": "bullet"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "Nouveaux actes"
+    },
+    {
+      "insert": " : Du contenu inédit sera ajouté régulièrement pour garder le monde en constante évolution."
+    },
+    {
+      "attributes": {
+        "list": "bullet"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "insert": "\r\n"
+    },
+    {
+      "attributes": {
+        "underline": "1",
+        "italic": "1",
+        "bold": "1"
+      },
+      "insert": "Prochainement..."
+    },
+    {
+      "attributes": {
+        "header": "4"
+      },
+      "insert": "\r\n"
+    },
+    {
+      "insert": "\r\nNous vous tiendrons informés des premières quêtes et des événements à venir pour vous plonger dans ce voyage interstellaire.\r\nRestez connectés pour plus de détails sur l'ouverture du serveur et les premières étapes à suivre pour devenir l'un des pionniers de "
+    },
+    {
+      "attributes": {
+        "bold": "1"
+      },
+      "insert": "\"Épopée Interstellaire\""
+    },
+    {
+      "insert": " !\r\n\r\nÀ bientôt dans les étoiles ! 🌌\r\n"
+    }
+  ]
+}

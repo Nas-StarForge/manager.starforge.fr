@@ -78,6 +78,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "edge.js": "^6.0.2",
     "luxon": "^3.5.0",
+    "md-editor-v3": "^4.20.1",
     "pg": "^8.12.0",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.4.38",

@@ -5,8 +5,8 @@ import Post from '#models/post'
 
 export default class DashboardPostsController {
   async index({ inertia }: HttpContext) {
-    const posts = await Post.query().paginate(1, 10)
-    return inertia.render('dashboard/posts/index', posts)
+    const posts = await Post.query().paginate(1, 5)
+    return inertia.render('dashboard/posts/index', { posts })
   }
 
   async create({ inertia }: HttpContext) {
@@ -14,6 +14,7 @@ export default class DashboardPostsController {
   }
 
   async store({ request, response }: HttpContext) {
+    console.log(request.body())
     const avatar = request.file('images')!
     const data = request.body()
     await Post.create({

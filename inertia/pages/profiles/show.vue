@@ -64,7 +64,6 @@ const user = computed(() => page.props.user as User)
           </div>
           <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg p-3 my-4">Plus de nouveautés bientôt</button>
         </div>
-        <!-- End of about section -->
       </div>
     </div>
   </Layout>
