@@ -28,7 +28,7 @@ import toast from '@/components/toast.vue'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: 'HomeIcon' },
-  { name: 'Users', href: '#', icon: 'UsersIcon' },
+  { name: 'Users', href: '/dashboard/users', icon: 'UsersIcon' },
   { name: 'Posts', href: '/dashboard/posts', icon: 'DocumentDuplicateIcon' },
   { name: 'Shop', href: '#', icon: 'FolderIcon' }
 ]
