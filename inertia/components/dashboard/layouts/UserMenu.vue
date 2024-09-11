@@ -34,7 +34,7 @@ import { Link } from '@inertiajs/vue3'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
 // Props passed to the component
-const props = defineProps({
+defineProps({
   userNavigation: Array,
   userName: {
     type: String,

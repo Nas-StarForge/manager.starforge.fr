@@ -50,4 +50,5 @@ router.use([
 export const middleware = router.named({
   auth: () => import('#middleware/auth_middleware'),
   discord: () => import('#middleware/discord_middleware'),
+  userPreload: () => import('#middleware/user_preload_middleware'),
 })

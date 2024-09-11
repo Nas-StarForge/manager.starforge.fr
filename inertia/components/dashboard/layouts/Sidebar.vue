@@ -4,7 +4,7 @@ import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessu
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import SidebarContent from './SidebarContent.vue'
 
-const props = defineProps<{
+defineProps<{
   navigation: { name: string, href: string, icon: string }[]
 }>()
 

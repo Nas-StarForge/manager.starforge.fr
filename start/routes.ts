@@ -44,6 +44,7 @@ router
         router.post('/settings/changeUsername', [ProfilesController, 'changeUsername']).as('proifle.settings.changUsername')
       })
       .prefix('profile')
+      .use(middleware.userPreload())
 
     router
       .group(() => {
